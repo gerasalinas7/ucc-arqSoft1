@@ -5,12 +5,14 @@ import (
 	"log"
 	"go-jwt-login/handlers"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 )
 
 func main() {
 	// Inicializa Gin
 	router := gin.Default()
 
+	router.Use(cors.Default())
 	// Rutas
 	router.POST("/register", handlers.Register)
 	router.POST("/login", handlers.Login)
